@@ -72,18 +72,3 @@ public class TcpPortScanner : IPortScanner
         return service;
     }
 }
-
-/// <summary>Lit la bannière d'un service sur une connexion ouverte.</summary>
-public static class BannerGrabber
-{
-    public static Task<string?> ReadAsync(TcpClient client, int port, int timeoutMs, CancellationToken ct)
-    {
-        // TODO (Ilyass) : trois cas.
-        //   - Services qui parlent en premier (FTP, SSH, SMTP, Telnet, MySQL) : lire ce qui arrive
-        //     pendant timeoutMs. Ex. « SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10 ».
-        //   - HTTP (80, 8080) : envoyer « HEAD / HTTP/1.0\r\n\r\n » et renvoyer la valeur de l'en-tête « Server: ».
-        //   - HTTPS (443) : même chose à travers un SslStream (accepter tous les certificats, c'est un scanner).
-        // Renvoyer null si rien n'arrive. Nettoyer les caractères non imprimables (MySQL envoie du binaire).
-        throw new NotImplementedException();
-    }
-}
