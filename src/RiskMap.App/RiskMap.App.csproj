@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\RiskMap.Core\RiskMap.Core.csproj" />
+    <ProjectReference Include="..\RiskMap.Discovery\RiskMap.Discovery.csproj" />
+    <ProjectReference Include="..\RiskMap.Scanner\RiskMap.Scanner.csproj" />
+    <ProjectReference Include="..\RiskMap.Analysis\RiskMap.Analysis.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+</Project>

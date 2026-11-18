@@ -1,0 +1,12 @@
+<UserControl x:Class="RiskMap.App.NetworkMapControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Carte du réseau — responsable : Aida. Version de départ très simple, à améliorer librement. -->
+    <Grid Background="#FAFAFA">
+        <Canvas x:Name="MapCanvas" ClipToBounds="True" />
+        <TextBlock x:Name="EmptyText"
+                   Text="Lancez un scan ou ouvrez un résultat pour afficher la carte."
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="Gray" FontSize="14" />
+    </Grid>
+</UserControl>
