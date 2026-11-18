@@ -25,21 +25,51 @@ public class TcpPortScanner : IPortScanner
 
     public async Task ScanAsync(Host host, CancellationToken ct)
     {
-        // TODO (Ilyass) :
-        // 1. Pour chaque port, en parallèle :
-        //      using var client = new TcpClient();
-        //      using var timeout = CancellationTokenSource.CreateLinkedTokenSource(ct);
-        //      timeout.CancelAfter(ConnectTimeoutMs);
-        //      await client.ConnectAsync(host.IpAddress, port, timeout.Token);
-        //    Connexion réussie = port ouvert. Exception ou délai dépassé = fermé ou filtré.
-        // 2. Pour chaque port ouvert, appeler BannerGrabber.ReadAsync.
-        // 3. Remplir host.Services (Port, Name, RawBanner), trié par port.
-        //    Ne PAS interpréter la bannière : l'analyse s'en charge. On garde le texte brut.
-        //
-        // Pour tester sans le reste de l'application :
-        //   dotnet run --project src/RiskMap.Cli -- scan 192.168.56.101
-        await Task.CompletedTask;
-        throw new NotImplementedException("Scan des ports pas encore écrit (TcpPortScanner).");
+        // Tous les ports sont testés en même temps : le scan d'une machine dure
+        // environ ConnectTimeoutMs (+ lecture des bannières), et non la somme des délais.
+        var tasks = Ports.Select(p => ScanPortAsync(host.IpAddress, p.Key, p.Value, ct));
+        var results = await Task.WhenAll(tasks);
+
+        // Ports fermés ou filtrés = null : on ne garde que les ouverts, triés par numéro.
+        // On garde la bannière brute : c'est le module Analyse qui l'interprète.
+        host.Services = results.OfType<Service>().OrderBy(s => s.Port).ToList();
+    }
+
+    /// <summary>Teste un port. Renvoie le service s'il est ouvert, null s'il est fermé ou filtré.</summary>
+    private async Task<Service?> ScanPortAsync(string ip, int port, string name, CancellationToken ct)
+    {
+        using var client = new TcpClient();
+        using var timeout = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        timeout.CancelAfter(ConnectTimeoutMs);
+
+        try
+        {
+            await client.ConnectAsync(ip, port, timeout.Token);
+        }
+        catch (OperationCanceledException) when (!ct.IsCancellationRequested)
+        {
+            return null; // délai dépassé : port filtré (pare-feu) ou machine qui ne répond pas
+        }
+        catch (SocketException)
+        {
+            return null; // connexion refusée : port fermé
+        }
+        // Si c'est l'utilisateur qui a annulé (ct), l'exception remonte et arrête le scan.
+
+        var service = new Service { Port = port, Name = name };
+        try
+        {
+            service.RawBanner = await BannerGrabber.ReadAsync(client, port, BannerTimeoutMs, ct);
+        }
+        catch (OperationCanceledException) when (ct.IsCancellationRequested)
+        {
+            throw;
+        }
+        catch (Exception)
+        {
+            // Bannière illisible : le port reste ouvert, RawBanner reste null.
+        }
+        return service;
     }
 }
 
