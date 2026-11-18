@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<CorrespondanceProduits xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Table>
+    <ProduitNvd>
+      <Produit>OpenSSH</Produit>
+      <Vendeur>openbsd</Vendeur>
+      <ProduitCpe>openssh</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>vsftpd</Produit>
+      <Vendeur>vsftpd_project</Vendeur>
+      <ProduitCpe>vsftpd</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>ProFTPD</Produit>
+      <Vendeur>proftpd</Vendeur>
+      <ProduitCpe>proftpd</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>Apache httpd</Produit>
+      <Vendeur>apache</Vendeur>
+      <ProduitCpe>http_server</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>nginx</Produit>
+      <Vendeur>f5</Vendeur>
+      <ProduitCpe>nginx</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>Microsoft IIS</Produit>
+      <Vendeur>microsoft</Vendeur>
+      <ProduitCpe>internet_information_services</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>MySQL</Produit>
+      <Vendeur>oracle</Vendeur>
+      <ProduitCpe>mysql</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>Samba</Produit>
+      <Vendeur>samba</Vendeur>
+      <ProduitCpe>samba</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>Postfix</Produit>
+      <Vendeur>postfix</Vendeur>
+      <ProduitCpe>postfix</ProduitCpe>
+    </ProduitNvd>
+    <ProduitNvd>
+      <Produit>Exim</Produit>
+      <Vendeur>exim</Vendeur>
+      <ProduitCpe>exim</ProduitCpe>
+    </ProduitNvd>
+  </Table>
+</CorrespondanceProduits>

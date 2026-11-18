@@ -1,0 +1,20 @@
+// Règles de risque — responsable : Aida.
+// Modifiable sans toucher au code : le programme relit ce fichier à chaque lancement.
+{
+  "portRules": [
+    { "port": 21,   "label": "FTP",    "points": 20, "reason": "transfert non chiffré" },
+    { "port": 22,   "label": "SSH",    "points": 0,  "reason": "protocole sécurisé" },
+    { "port": 23,   "label": "Telnet", "points": 30, "reason": "mots de passe envoyés en clair" },
+    { "port": 80,   "label": "HTTP",   "points": 5,  "reason": "trafic web non chiffré" },
+    { "port": 443,  "label": "HTTPS",  "points": 0,  "reason": "trafic chiffré" },
+    { "port": 445,  "label": "SMB",    "points": 25, "reason": "faille connue (ex. WannaCry)" },
+    { "port": 3306, "label": "MySQL",  "points": 15, "reason": "base de données exposée sur le réseau" },
+    { "port": 3389, "label": "RDP",    "points": 15, "reason": "bureau à distance exposé" }
+  ],
+
+  // Points ajoutés par CVE selon sa gravité (valeurs de départ, à ajuster pendant les tests).
+  "cvePoints": { "critical": 40, "high": 25, "medium": 10, "low": 0 },
+
+  // Score minimum pour chaque niveau. En dessous de « medium » : risque faible.
+  "levels": { "medium": 20, "high": 40, "critical": 70 }
+}

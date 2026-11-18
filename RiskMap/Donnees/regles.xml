@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<GrilleRisque xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Regles>
+    <RegleRisque>
+      <Port>23</Port>
+      <Points>30</Points>
+      <Raison>Telnet : mots de passe envoyés en clair</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>445</Port>
+      <Points>25</Points>
+      <Raison>SMB exposé : failles connues (ex. WannaCry)</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>21</Port>
+      <Points>20</Points>
+      <Raison>FTP : transfert non chiffré</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>22</Port>
+      <Points>0</Points>
+      <Raison>SSH : protocole sécurisé</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>3389</Port>
+      <Points>15</Points>
+      <Raison>Bureau à distance (RDP) exposé</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>5900</Port>
+      <Points>20</Points>
+      <Raison>VNC : accès à distance souvent mal protégé</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>3306</Port>
+      <Points>15</Points>
+      <Raison>Base de données MySQL exposée sur le réseau</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>139</Port>
+      <Points>10</Points>
+      <Raison>NetBIOS : partage Windows ancien</Raison>
+    </RegleRisque>
+    <RegleRisque>
+      <Port>80</Port>
+      <Points>5</Points>
+      <Raison>HTTP : site non chiffré</Raison>
+    </RegleRisque>
+  </Regles>
+  <PointsCveCritique>40</PointsCveCritique>
+  <PointsCveElevee>25</PointsCveElevee>
+  <PointsCveMoyenne>10</PointsCveMoyenne>
+  <SeuilMoyen>20</SeuilMoyen>
+  <SeuilEleve>50</SeuilEleve>
+  <SeuilCritique>80</SeuilCritique>
+</GrilleRisque>

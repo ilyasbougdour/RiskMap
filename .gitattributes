@@ -1,0 +1,7 @@
+# fins de ligne Windows pour les fichiers ouverts par SharpDevelop
+*.cs      text eol=crlf
+*.csproj  text eol=crlf
+*.sln     text eol=crlf
+*.config  text eol=crlf
+*.xml     text eol=crlf
+*.md      text eol=lf

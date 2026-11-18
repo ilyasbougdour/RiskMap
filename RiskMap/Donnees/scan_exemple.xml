@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<ResultatScan xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DateScan>2026-11-16T10:00:00</DateScan>
+  <PlageReseau>192.168.56.1-254 (données d'exemple)</PlageReseau>
+  <Machines>
+    <Machine>
+      <AdresseIp>192.168.56.101</AdresseIp>
+      <NomHote>metasploitable</NomHote>
+      <AdresseMac>08:00:27:4A:1B:2C</AdresseMac>
+      <Fabricant>Oracle VirtualBox</Fabricant>
+      <Ttl>64</Ttl>
+      <SystemeProbable>Linux (Ubuntu)</SystemeProbable>
+      <ConfianceSysteme>85</ConfianceSysteme>
+      <EtatSysteme>Identifie</EtatSysteme>
+      <Services>
+        <Service>
+          <Port>21</Port>
+          <NomService>ftp</NomService>
+          <Banniere>220 (vsFTPd 2.3.4)</Banniere>
+          <Produit>vsftpd</Produit>
+          <Version>2.3.4</Version>
+          <EtatVersion>Identifie</EtatVersion>
+          <Vulnerabilites>
+            <Vulnerabilite>
+              <IdCve>CVE-2011-2523</IdCve>
+              <ScoreCvss>9.8</ScoreCvss>
+              <Description>vsftpd 2.3.4 downloaded between 20110630 and 20110703 contains a backdoor which opens a shell on port 6200/tcp.</Description>
+            </Vulnerabilite>
+          </Vulnerabilites>
+        </Service>
+        <Service>
+          <Port>22</Port>
+          <NomService>ssh</NomService>
+          <Banniere>SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1</Banniere>
+          <Produit>OpenSSH</Produit>
+          <Version>4.7p1</Version>
+          <EtatVersion>Identifie</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+        <Service>
+          <Port>23</Port>
+          <NomService>telnet</NomService>
+          <Banniere />
+          <Produit />
+          <Version />
+          <EtatVersion>NonDetermine</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+        <Service>
+          <Port>80</Port>
+          <NomService>http</NomService>
+          <Banniere>Server: Apache/2.2.8 (Ubuntu) DAV/2</Banniere>
+          <Produit>Apache httpd</Produit>
+          <Version>2.2.8</Version>
+          <EtatVersion>Identifie</EtatVersion>
+          <Vulnerabilites>
+            <Vulnerabilite>
+              <IdCve>CVE-2011-3192</IdCve>
+              <ScoreCvss>7.8</ScoreCvss>
+              <Description>The byterange filter in the Apache HTTP Server 1.3.x, 2.0.x through 2.0.64, and 2.2.x through 2.2.19 allows remote attackers to cause a denial of service.</Description>
+            </Vulnerabilite>
+          </Vulnerabilites>
+        </Service>
+      </Services>
+      <Score>120</Score>
+      <Niveau>Critique</Niveau>
+      <DetailScore>
+        <string>+30 port 23 : Telnet : mots de passe envoyés en clair</string>
+        <string>+20 port 21 : FTP : transfert non chiffré</string>
+        <string>+5 port 80 : HTTP : site non chiffré</string>
+        <string>+40 21/ftp vsftpd 2.3.4 : CVE de score 9.8</string>
+        <string>+25 80/http Apache httpd 2.2.8 : CVE de score 7.8</string>
+      </DetailScore>
+      <Synthese />
+    </Machine>
+    <Machine>
+      <AdresseIp>192.168.56.110</AdresseIp>
+      <NomHote>PC-COMPTA</NomHote>
+      <AdresseMac>00:15:5D:01:02:03</AdresseMac>
+      <Fabricant>Microsoft (Hyper-V)</Fabricant>
+      <Ttl>128</Ttl>
+      <SystemeProbable>Windows</SystemeProbable>
+      <ConfianceSysteme>90</ConfianceSysteme>
+      <EtatSysteme>Identifie</EtatSysteme>
+      <Services>
+        <Service>
+          <Port>445</Port>
+          <NomService>microsoft-ds</NomService>
+          <Banniere />
+          <Produit />
+          <Version />
+          <EtatVersion>NonDetermine</EtatVersion>
+          <Vulnerabilites>
+            <Vulnerabilite>
+              <IdCve>CVE-2017-0144</IdCve>
+              <ScoreCvss>8.8</ScoreCvss>
+              <Description>The SMBv1 server in Microsoft Windows allows remote attackers to execute arbitrary code via crafted packets (EternalBlue).</Description>
+            </Vulnerabilite>
+          </Vulnerabilites>
+        </Service>
+        <Service>
+          <Port>3389</Port>
+          <NomService>ms-wbt-server</NomService>
+          <Banniere />
+          <Produit />
+          <Version />
+          <EtatVersion>NonDetermine</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+        <Service>
+          <Port>80</Port>
+          <NomService>http</NomService>
+          <Banniere>Server: Microsoft-IIS/10.0</Banniere>
+          <Produit>Microsoft IIS</Produit>
+          <Version>10.0</Version>
+          <EtatVersion>Identifie</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+      </Services>
+      <Score>70</Score>
+      <Niveau>Eleve</Niveau>
+      <DetailScore>
+        <string>+25 port 445 : SMB exposé : failles connues (ex. WannaCry)</string>
+        <string>+15 port 3389 : Bureau à distance (RDP) exposé</string>
+        <string>+5 port 80 : HTTP : site non chiffré</string>
+        <string>+25 445/microsoft-ds (version non déterminée) : CVE de score 8.8</string>
+      </DetailScore>
+      <Synthese />
+    </Machine>
+    <Machine>
+      <AdresseIp>192.168.56.120</AdresseIp>
+      <NomHote />
+      <AdresseMac>3C:2A:F4:10:20:30</AdresseMac>
+      <Fabricant>Brother</Fabricant>
+      <Ttl>255</Ttl>
+      <SystemeProbable>Équipement réseau (imprimante)</SystemeProbable>
+      <ConfianceSysteme>60</ConfianceSysteme>
+      <EtatSysteme>Identifie</EtatSysteme>
+      <Services>
+        <Service>
+          <Port>80</Port>
+          <NomService>http</NomService>
+          <Banniere>Server: debut</Banniere>
+          <Produit />
+          <Version />
+          <EtatVersion>Masque</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+        <Service>
+          <Port>9100</Port>
+          <NomService>jetdirect</NomService>
+          <Banniere />
+          <Produit />
+          <Version />
+          <EtatVersion>NonDetermine</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+      </Services>
+      <Score>5</Score>
+      <Niveau>Faible</Niveau>
+      <DetailScore>
+        <string>+5 port 80 : HTTP : site non chiffré</string>
+        <string>? 80/http (version masquée) : version masquée, risque inconnu (pas faible)</string>
+      </DetailScore>
+      <Synthese />
+    </Machine>
+    <Machine>
+      <AdresseIp>192.168.56.130</AdresseIp>
+      <NomHote>srv-web</NomHote>
+      <AdresseMac>08:00:27:AA:BB:CC</AdresseMac>
+      <Fabricant>Oracle VirtualBox</Fabricant>
+      <Ttl>64</Ttl>
+      <SystemeProbable>Linux (Ubuntu)</SystemeProbable>
+      <ConfianceSysteme>80</ConfianceSysteme>
+      <EtatSysteme>Identifie</EtatSysteme>
+      <Services>
+        <Service>
+          <Port>22</Port>
+          <NomService>ssh</NomService>
+          <Banniere>SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13</Banniere>
+          <Produit>OpenSSH</Produit>
+          <Version>9.6p1</Version>
+          <EtatVersion>Identifie</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+        <Service>
+          <Port>443</Port>
+          <NomService>https</NomService>
+          <Banniere>Server: nginx</Banniere>
+          <Produit>nginx</Produit>
+          <Version />
+          <EtatVersion>Masque</EtatVersion>
+          <Vulnerabilites />
+        </Service>
+      </Services>
+      <Score>0</Score>
+      <Niveau>Faible</Niveau>
+      <DetailScore>
+        <string>? 443/https (version masquée) : version masquée, risque inconnu (pas faible)</string>
+      </DetailScore>
+      <Synthese />
+    </Machine>
+  </Machines>
+  <SyntheseGlobale />
+  <SourceSynthese />
+</ResultatScan>

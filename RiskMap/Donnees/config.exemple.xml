@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UtiliserIa>false</UtiliserIa>
+  <UrlApiIa>https://adresse-de-l-api-choisie</UrlApiIa>
+  <ModeleIa>nom-du-modele</ModeleIa>
+  <CleApiIa />
+  <CleApiNvd />
+  <DelaiPingMs>500</DelaiPingMs>
+  <DelaiPortMs>800</DelaiPortMs>
+  <Ports>
+    <int>21</int>
+    <int>22</int>
+    <int>23</int>
+    <int>25</int>
+    <int>53</int>
+    <int>80</int>
+    <int>110</int>
+    <int>139</int>
+    <int>143</int>
+    <int>443</int>
+    <int>445</int>
+    <int>3306</int>
+    <int>3389</int>
+    <int>5900</int>
+    <int>8080</int>
+    <int>9100</int>
+  </Ports>
+</Configuration>

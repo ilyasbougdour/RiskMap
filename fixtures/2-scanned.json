@@ -1,0 +1,239 @@
+{
+  "target": "192.168.56.0/24",
+  "startedAt": "2026-11-18T14:00:00",
+  "finishedAt": "2026-11-18T14:02:30",
+  "hosts": [
+    {
+      "ipAddress": "192.168.56.1",
+      "hostname": "PC-ADMIN",
+      "macAddress": "0A:00:27:00:00:11",
+      "vendor": null,
+      "ttl": 128,
+      "services": [
+        {
+          "port": 135,
+          "protocol": "tcp",
+          "name": "msrpc",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 139,
+          "protocol": "tcp",
+          "name": "netbios-ssn",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 445,
+          "protocol": "tcp",
+          "name": "smb",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Windows",
+        "confidence": 80,
+        "clues": [
+          "TTL 128",
+          "ports 135 + 445 ouverts"
+        ]
+      },
+      "risk": null,
+      "aiSummary": null
+    },
+    {
+      "ipAddress": "192.168.56.101",
+      "hostname": "metasploitable",
+      "macAddress": "08:00:27:3A:5B:01",
+      "vendor": "PCS Systemtechnik (VirtualBox)",
+      "ttl": 64,
+      "services": [
+        {
+          "port": 21,
+          "protocol": "tcp",
+          "name": "ftp",
+          "rawBanner": "220 (vsFTPd 2.3.4)",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 22,
+          "protocol": "tcp",
+          "name": "ssh",
+          "rawBanner": "SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 23,
+          "protocol": "tcp",
+          "name": "telnet",
+          "rawBanner": "metasploitable login: ",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "name": "http",
+          "rawBanner": "Apache/2.2.8 (Ubuntu) DAV/2",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 445,
+          "protocol": "tcp",
+          "name": "smb",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 3306,
+          "protocol": "tcp",
+          "name": "mysql",
+          "rawBanner": "5.0.51a-3ubuntu5",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Linux (Ubuntu)",
+        "confidence": 90,
+        "clues": [
+          "TTL 64",
+          "bannière SSH « Debian-8ubuntu1 »",
+          "bannière HTTP « (Ubuntu) »"
+        ]
+      },
+      "risk": null,
+      "aiSummary": null
+    },
+    {
+      "ipAddress": "192.168.56.102",
+      "hostname": "srv-web",
+      "macAddress": "08:00:27:3A:5B:02",
+      "vendor": "PCS Systemtechnik (VirtualBox)",
+      "ttl": 64,
+      "services": [
+        {
+          "port": 22,
+          "protocol": "tcp",
+          "name": "ssh",
+          "rawBanner": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "name": "http",
+          "rawBanner": "nginx",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 443,
+          "protocol": "tcp",
+          "name": "https",
+          "rawBanner": "nginx",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Linux (Ubuntu)",
+        "confidence": 85,
+        "clues": [
+          "TTL 64",
+          "bannière SSH « Ubuntu-3ubuntu0.10 »"
+        ]
+      },
+      "risk": null,
+      "aiSummary": null
+    },
+    {
+      "ipAddress": "192.168.56.103",
+      "hostname": null,
+      "macAddress": "3C:D9:2B:10:20:30",
+      "vendor": "Hewlett Packard",
+      "ttl": 255,
+      "services": [
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "name": "http",
+          "rawBanner": "HP HTTP Server; HP LaserJet Pro",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 631,
+          "protocol": "tcp",
+          "name": "ipp",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 9100,
+          "protocol": "tcp",
+          "name": "jetdirect",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Imprimante (HP)",
+        "confidence": 70,
+        "clues": [
+          "TTL 255",
+          "fabricant MAC Hewlett Packard",
+          "port 9100 (impression)"
+        ]
+      },
+      "risk": null,
+      "aiSummary": null
+    }
+  ]
+}

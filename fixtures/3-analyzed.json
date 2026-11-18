@@ -1,0 +1,370 @@
+{
+  "target": "192.168.56.0/24",
+  "startedAt": "2026-11-18T14:00:00",
+  "finishedAt": "2026-11-18T14:02:30",
+  "hosts": [
+    {
+      "ipAddress": "192.168.56.1",
+      "hostname": "PC-ADMIN",
+      "macAddress": "0A:00:27:00:00:11",
+      "vendor": null,
+      "ttl": 128,
+      "services": [
+        {
+          "port": 135,
+          "protocol": "tcp",
+          "name": "msrpc",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 139,
+          "protocol": "tcp",
+          "name": "netbios-ssn",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 445,
+          "protocol": "tcp",
+          "name": "smb",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Windows",
+        "confidence": 80,
+        "clues": [
+          "TTL 128",
+          "ports 135 + 445 ouverts"
+        ]
+      },
+      "risk": {
+        "score": 25,
+        "level": "Medium",
+        "factors": [
+          {
+            "source": "port",
+            "points": 25,
+            "reason": "Port 445 (SMB) : faille connue (ex. WannaCry)"
+          }
+        ]
+      },
+      "aiSummary": "Poste Windows avec le partage de fichiers (SMB, port 445) exposé. Aucune version n'a pu être lue, donc aucune CVE n'a été recherchée : le risque réel est inconnu. Priorité : vérifier que les mises à jour Windows sont appliquées (MS17-010, faille utilisée par WannaCry) et limiter l'accès au port 445 par le pare-feu."
+    },
+    {
+      "ipAddress": "192.168.56.101",
+      "hostname": "metasploitable",
+      "macAddress": "08:00:27:3A:5B:01",
+      "vendor": "PCS Systemtechnik (VirtualBox)",
+      "ttl": 64,
+      "services": [
+        {
+          "port": 21,
+          "protocol": "tcp",
+          "name": "ftp",
+          "rawBanner": "220 (vsFTPd 2.3.4)",
+          "versionState": "Identified",
+          "product": "vsftpd",
+          "version": "2.3.4",
+          "vulnerabilities": [
+            {
+              "cveId": "CVE-2011-2523",
+              "cvssScore": 9.8,
+              "severity": "CRITICAL",
+              "description": "Porte dérobée ajoutée à l'archive de vsftpd 2.3.4 : un nom d'utilisateur contenant « :) » ouvre un shell sur le port 6200.",
+              "published": null,
+              "url": "https://nvd.nist.gov/vuln/detail/CVE-2011-2523"
+            }
+          ]
+        },
+        {
+          "port": 22,
+          "protocol": "tcp",
+          "name": "ssh",
+          "rawBanner": "SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1",
+          "versionState": "Identified",
+          "product": "OpenSSH",
+          "version": "4.7p1",
+          "vulnerabilities": [
+            {
+              "cveId": "CVE-2010-4478",
+              "cvssScore": 7.5,
+              "severity": "HIGH",
+              "description": "L'implémentation J-PAKE d'OpenSSH avant 5.7 ne vérifie pas certains paramètres, ce qui peut permettre de contourner l'authentification.",
+              "published": null,
+              "url": "https://nvd.nist.gov/vuln/detail/CVE-2010-4478"
+            }
+          ]
+        },
+        {
+          "port": 23,
+          "protocol": "tcp",
+          "name": "telnet",
+          "rawBanner": "metasploitable login: ",
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "name": "http",
+          "rawBanner": "Apache/2.2.8 (Ubuntu) DAV/2",
+          "versionState": "Identified",
+          "product": "Apache httpd",
+          "version": "2.2.8",
+          "vulnerabilities": [
+            {
+              "cveId": "CVE-2011-3192",
+              "cvssScore": 7.8,
+              "severity": "HIGH",
+              "description": "« Apache Killer » : un en-tête Range forgé épuise la mémoire du serveur (déni de service).",
+              "published": null,
+              "url": "https://nvd.nist.gov/vuln/detail/CVE-2011-3192"
+            }
+          ]
+        },
+        {
+          "port": 445,
+          "protocol": "tcp",
+          "name": "smb",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 3306,
+          "protocol": "tcp",
+          "name": "mysql",
+          "rawBanner": "5.0.51a-3ubuntu5",
+          "versionState": "Identified",
+          "product": "MySQL",
+          "version": "5.0.51a",
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Linux (Ubuntu)",
+        "confidence": 90,
+        "clues": [
+          "TTL 64",
+          "bannière SSH « Debian-8ubuntu1 »",
+          "bannière HTTP « (Ubuntu) »"
+        ]
+      },
+      "risk": {
+        "score": 185,
+        "level": "Critical",
+        "factors": [
+          {
+            "source": "port",
+            "points": 20,
+            "reason": "Port 21 (FTP) : transfert non chiffré"
+          },
+          {
+            "source": "port",
+            "points": 0,
+            "reason": "Port 22 (SSH) : protocole sécurisé"
+          },
+          {
+            "source": "port",
+            "points": 30,
+            "reason": "Port 23 (Telnet) : mots de passe envoyés en clair"
+          },
+          {
+            "source": "port",
+            "points": 5,
+            "reason": "Port 80 (HTTP) : trafic web non chiffré"
+          },
+          {
+            "source": "port",
+            "points": 25,
+            "reason": "Port 445 (SMB) : faille connue (ex. WannaCry)"
+          },
+          {
+            "source": "port",
+            "points": 15,
+            "reason": "Port 3306 (MySQL) : base de données exposée sur le réseau"
+          },
+          {
+            "source": "cve",
+            "points": 40,
+            "reason": "CVE-2011-2523 (critique) sur vsftpd 2.3.4"
+          },
+          {
+            "source": "cve",
+            "points": 25,
+            "reason": "CVE-2010-4478 (élevée) sur OpenSSH 4.7p1"
+          },
+          {
+            "source": "cve",
+            "points": 25,
+            "reason": "CVE-2011-3192 (élevée) sur Apache httpd 2.2.8"
+          }
+        ]
+      },
+      "aiSummary": "Machine Linux (Ubuntu) très exposée : six services ouverts, dont plusieurs non chiffrés (FTP, Telnet, HTTP). Le plus urgent est le serveur FTP vsftpd 2.3.4, touché par CVE-2011-2523 (porte dérobée, gravité critique) : désactiver ce service ou installer une version saine. Ensuite : fermer Telnet au profit de SSH, mettre à jour OpenSSH 4.7p1 et Apache 2.2.8, et ne plus exposer MySQL (port 3306) sur le réseau."
+    },
+    {
+      "ipAddress": "192.168.56.102",
+      "hostname": "srv-web",
+      "macAddress": "08:00:27:3A:5B:02",
+      "vendor": "PCS Systemtechnik (VirtualBox)",
+      "ttl": 64,
+      "services": [
+        {
+          "port": 22,
+          "protocol": "tcp",
+          "name": "ssh",
+          "rawBanner": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10",
+          "versionState": "Identified",
+          "product": "OpenSSH",
+          "version": "8.9p1",
+          "vulnerabilities": [
+            {
+              "cveId": "CVE-2024-6387",
+              "cvssScore": 8.1,
+              "severity": "HIGH",
+              "description": "« regreSSHion » : condition de concurrence dans le gestionnaire de signaux de sshd, pouvant permettre une exécution de code à distance sans authentification.",
+              "published": null,
+              "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6387"
+            }
+          ]
+        },
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "name": "http",
+          "rawBanner": "nginx",
+          "versionState": "Hidden",
+          "product": "nginx",
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 443,
+          "protocol": "tcp",
+          "name": "https",
+          "rawBanner": "nginx",
+          "versionState": "Hidden",
+          "product": "nginx",
+          "version": null,
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Linux (Ubuntu)",
+        "confidence": 85,
+        "clues": [
+          "TTL 64",
+          "bannière SSH « Ubuntu-3ubuntu0.10 »"
+        ]
+      },
+      "risk": {
+        "score": 30,
+        "level": "Medium",
+        "factors": [
+          {
+            "source": "port",
+            "points": 0,
+            "reason": "Port 22 (SSH) : protocole sécurisé"
+          },
+          {
+            "source": "port",
+            "points": 5,
+            "reason": "Port 80 (HTTP) : trafic web non chiffré"
+          },
+          {
+            "source": "port",
+            "points": 0,
+            "reason": "Port 443 (HTTPS) : trafic chiffré"
+          },
+          {
+            "source": "cve",
+            "points": 25,
+            "reason": "CVE-2024-6387 (élevée) sur OpenSSH 8.9p1"
+          }
+        ]
+      },
+      "aiSummary": "Serveur web Linux (Ubuntu) plutôt bien configuré : nginx masque sa version, ce qui est une bonne pratique, mais ne prouve pas qu'il est à jour. OpenSSH 8.9p1 est potentiellement concerné par CVE-2024-6387 (regreSSHion). Attention, Ubuntu corrige souvent une faille sans changer le numéro de version : le suffixe « 3ubuntu0.10 » peut déjà inclure le correctif. À vérifier sur le serveur avec « apt list --installed openssh-server »."
+    },
+    {
+      "ipAddress": "192.168.56.103",
+      "hostname": null,
+      "macAddress": "3C:D9:2B:10:20:30",
+      "vendor": "Hewlett Packard",
+      "ttl": 255,
+      "services": [
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "name": "http",
+          "rawBanner": "HP HTTP Server; HP LaserJet Pro",
+          "versionState": "Hidden",
+          "product": "HP HTTP Server",
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 631,
+          "protocol": "tcp",
+          "name": "ipp",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        },
+        {
+          "port": 9100,
+          "protocol": "tcp",
+          "name": "jetdirect",
+          "rawBanner": null,
+          "versionState": "Undetermined",
+          "product": null,
+          "version": null,
+          "vulnerabilities": []
+        }
+      ],
+      "os": {
+        "state": "Identified",
+        "name": "Imprimante (HP)",
+        "confidence": 70,
+        "clues": [
+          "TTL 255",
+          "fabricant MAC Hewlett Packard",
+          "port 9100 (impression)"
+        ]
+      },
+      "risk": {
+        "score": 5,
+        "level": "Low",
+        "factors": [
+          {
+            "source": "port",
+            "points": 5,
+            "reason": "Port 80 (HTTP) : trafic web non chiffré"
+          }
+        ]
+      },
+      "aiSummary": "Imprimante HP. Aucun service à risque connu, mais l'interface web (port 80) n'est pas chiffrée et les imprimantes sont rarement mises à jour : vérifier le firmware et changer le mot de passe administrateur par défaut."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "target": "192.168.56.0/24",
+  "startedAt": "2026-11-18T14:00:00",
+  "finishedAt": "2026-11-18T14:02:30",
+  "hosts": [
+    {
+      "ipAddress": "192.168.56.1",
+      "hostname": "PC-ADMIN",
+      "macAddress": "0A:00:27:00:00:11",
+      "vendor": null,
+      "ttl": 128,
+      "services": [],
+      "os": {
+        "state": "Undetermined",
+        "name": null,
+        "confidence": 0,
+        "clues": []
+      },
+      "risk": null,
+      "aiSummary": null
+    },
+    {
+      "ipAddress": "192.168.56.101",
+      "hostname": "metasploitable",
+      "macAddress": "08:00:27:3A:5B:01",
+      "vendor": "PCS Systemtechnik (VirtualBox)",
+      "ttl": 64,
+      "services": [],
+      "os": {
+        "state": "Undetermined",
+        "name": null,
+        "confidence": 0,
+        "clues": []
+      },
+      "risk": null,
+      "aiSummary": null
+    },
+    {
+      "ipAddress": "192.168.56.102",
+      "hostname": "srv-web",
+      "macAddress": "08:00:27:3A:5B:02",
+      "vendor": "PCS Systemtechnik (VirtualBox)",
+      "ttl": 64,
+      "services": [],
+      "os": {
+        "state": "Undetermined",
+        "name": null,
+        "confidence": 0,
+        "clues": []
+      },
+      "risk": null,
+      "aiSummary": null
+    },
+    {
+      "ipAddress": "192.168.56.103",
+      "hostname": null,
+      "macAddress": "3C:D9:2B:10:20:30",
+      "vendor": "Hewlett Packard",
+      "ttl": 255,
+      "services": [],
+      "os": {
+        "state": "Undetermined",
+        "name": null,
+        "confidence": 0,
+        "clues": []
+      },
+      "risk": null,
+      "aiSummary": null
+    }
+  ]
+}
